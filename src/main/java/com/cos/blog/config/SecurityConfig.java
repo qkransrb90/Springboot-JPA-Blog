@@ -3,6 +3,7 @@ package com.cos.blog.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -29,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 	
-	// 스피링 시큐리티가 어떤 형식의 암호화를 통해 password가 암호화 되었는지 알아야 DB값과 비교 가능!
+	// 스프링 시큐리티가 어떤 형식의 암호화를 통해 password가 암호화 되었는지 알아야 DB값과 비교 가능!
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
@@ -51,5 +52,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginPage("/auth/loginForm")
 				.loginProcessingUrl("/auth/loginProc")
 				.defaultSuccessUrl("/");
+	}
+	
+	@Bean
+	@Override
+	public AuthenticationManager authenticationManagerBean() throws Exception {
+		return super.authenticationManagerBean();
 	}
 }

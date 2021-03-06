@@ -10,11 +10,11 @@
 		</div>
 		<div class="form-group">
 			<label for="password">Password:</label> 
-			<input type="password" class="form-control" id="password">
+			<input type="password" class="form-control" id="password" <c:if test="${principal.user.oauth ne null}">readonly</c:if>>
 		</div>
 		<div class="form-group">
 			<label for="email">Email address:</label> 
-			<input type="email" class="form-control" placeholder="Enter email" value="${principal.user.email}" id="email">
+			<input type="email" class="form-control" placeholder="Enter email" value="${principal.user.email}" id="email" <c:if test="${principal.user.oauth ne null}">readonly</c:if>>
 		</div>
 		<button id="btn-update" class="btn btn-primary">수정완료</button>
 	</form>

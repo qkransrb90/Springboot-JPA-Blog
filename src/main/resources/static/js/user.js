@@ -28,9 +28,12 @@ const index = {
 			dataType: "json"
 		})
 		.done(function(response) {
-			if (response.data === 1) {
+			if (response.status === "CREATED") {
 				alert("회원가입이 완료되었습니다.");
 				location.href = "/";
+			} else {
+				alert("회원가입에 실패하였습니다.");
+				location.href = "/auth/joinForm";
 			}
 		})
 		.fail(function(error) {
@@ -41,6 +44,7 @@ const index = {
 	update: function() {
 		const data = {
 			id: $("#id").val(),
+			username: $("#username").val(),
 			password: $("#password").val(),
 			email: $("#email").val()
 		}

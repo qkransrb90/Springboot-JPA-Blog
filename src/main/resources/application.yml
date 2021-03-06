@@ -12,6 +12,9 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
+    hiddenmethod:
+      filter:
+        enabled: true
     
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -33,3 +36,6 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+
+cos:
+  key: cos1234

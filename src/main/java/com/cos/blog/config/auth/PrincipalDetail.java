@@ -9,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.cos.blog.model.User;
 
 import lombok.Getter;
-import lombok.Setter;
 
 public class PrincipalDetail implements UserDetails {
 
